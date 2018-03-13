@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>首页</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item class="themedark" *ngFor="let item of [1,2,3]">
+          <ion-avatar item-start>
+            <img src="assets/imgs/des.jpg">
+          </ion-avatar>
+          <h2>Cher</h2>
+          <p>Ugh. As if.</p>
+        </ion-item>
+      </ion-list>
+</ion-content>

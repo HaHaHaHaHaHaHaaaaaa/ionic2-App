@@ -1,0 +1,23 @@
+<ion-menu [content]="content" >
+  <ion-header color="primary" [class]="nightState==false?'':'dark-theme'">
+    <ion-toolbar>
+      <ion-title>菜单</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [class]="nightState==false?'':'dark-theme'">
+    <ion-list>
+      <button menuClose  ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+      <button ion-item>
+        <ion-label>夜间模式</ion-label>
+        <ion-toggle [(ngModel)]="nightState" (ngModelChange)="apv.changeTheme(nightState)"></ion-toggle>
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false" [class]="nightState==false?'':'dark-theme'"></ion-nav>
