@@ -9,13 +9,16 @@ import { ListPage } from '../pages/list/list'; */
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AppProvider } from '../providers/app/app';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NoopInterceptor  } from '../providers/http-interceptors/http-interceptors';
+
 @NgModule({
   declarations: [
     MyApp,
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp),HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -25,7 +28,8 @@ import { AppProvider } from '../providers/app/app';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AppProvider
+    AppProvider,
+    { provide: HTTP_INTERCEPTORS, useClass: NoopInterceptor , multi: true },
   ]
 })
 export class AppModule {}
