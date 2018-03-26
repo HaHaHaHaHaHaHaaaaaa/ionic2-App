@@ -34,4 +34,33 @@ export class ListPage {
       item: item
     });
   }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
+  doInfinite(infiniteScroll) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      for (let i = 0; i < 30; i++) {
+        for (let i = 1; i < 11; i++) {
+          this.items.push({
+            title: 'Item ' + i,
+            note: 'This is item #' + i,
+            icon: this.icons[Math.floor(Math.random() * this.icons.length)]
+          });
+        }
+      }
+
+      console.log('Async operation has ended');
+      infiniteScroll.complete();
+    }, 500);
+  }
+  
 }

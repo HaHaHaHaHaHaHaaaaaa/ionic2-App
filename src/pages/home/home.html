@@ -8,13 +8,26 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-list>
-        <ion-item class="themedark" *ngFor="let item of [1,2,3]">
-          <ion-avatar item-start>
-            <img src="assets/imgs/des.jpg">
-          </ion-avatar>
-          <h2>Cher</h2>
-          <p>Ugh. As if.</p>
-        </ion-item>
-      </ion-list>
+  <ion-list>
+    <ion-item class="themedark" *ngFor="let item of [1,2,3]">
+      <ion-avatar item-start>
+        <img src="assets/imgs/des.jpg">
+      </ion-avatar>
+      <h2>Cher</h2>
+      <p>Ugh. As if.</p>
+    </ion-item>
+  </ion-list>
+
+  <ion-segment mode="md" [(ngModel)]="relationship" color="primary" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="friends">
+      Friends
+    </ion-segment-button>
+    <ion-segment-button value="enemies">
+      Enemies
+    </ion-segment-button>
+    <ion-segment-button value="peaces">
+        Peaces
+      </ion-segment-button>
+  </ion-segment>
+
 </ion-content>

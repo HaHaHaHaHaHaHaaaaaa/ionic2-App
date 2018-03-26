@@ -6,9 +6,11 @@ import { NavController, IonicPage } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  relationship:any
   constructor(public navCtrl: NavController) {
 
   }
-
+  segmentChanged(ev){
+    
+  }
 }
